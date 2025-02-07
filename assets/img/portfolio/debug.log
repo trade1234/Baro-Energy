@@ -1,0 +1,5 @@
+[1012/104515.100:ERROR:browser_gpu_channel_host_factory.cc(139)] Failed to launch GPU process.
+[1012/140943.701:INFO:CONSOLE(1)] "Long rAF frame-time", source: file:///C:/Program%20Files/Adobe/Adobe%20Photoshop%202020/Required/www-rich-tooltips/build/external.js (1)
+[1012/140943.774:INFO:CONSOLE(1)] "Long rAF frame-time", source: file:///C:/Program%20Files/Adobe/Adobe%20Photoshop%202020/Required/www-rich-tooltips/build/external.js (1)
+[1012/143141.377:INFO:CONSOLE(1)] "Long rAF frame-time", source: file:///C:/Program%20Files/Adobe/Adobe%20Photoshop%202020/Required/www-rich-tooltips/build/external.js (1)
+[1012/161624.134:ERROR:browser_gpu_channel_host_factory.cc(139)] Failed to launch GPU process.
