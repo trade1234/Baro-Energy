@@ -97,7 +97,7 @@
       padding: 0px;
       text-align: center;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      border: 2px solid rgba(78, 76, 76, 0.1);
+      border: 2px solid rgba(78, 76, 76, 0.1); 
     }
 
     /* Image grid styling */
@@ -217,21 +217,21 @@
 
     /* recent-posts */
 
-    .recent-posts .container .post-box {
+  /*  .recent-posts .container .post-box {
       border: 2px solid rgb(87, 89, 90);
-      border-left: 2px solid rgb(87, 89, 90);
+      /*border-left: 2px solid rgb(87, 89, 90);
       border-right: 2px solid rgb(87, 89, 90);
       /* max-width: 200px; */
-      /* max-height: 600px; */
-    }
+      /* max-height: 600px; *
+    }*/
 
     /* .recent-posts .container .post-box :hover {
       border: 2px solid rgb(10, 160, 235);
     } */
 
     .recent-posts .container .post-box .post-img :hover {
-      border: 2px solid rgb(10, 160, 235);
-
+      /*border: 2px solid rgb(10, 160, 235);*/
+      overflow: hidden;
       transform: scale(1.05)
     }
   </style>
@@ -290,11 +290,16 @@
 
     <!-- Featured Services Section -->
     <section id="featured-services" class="featured-services section">
+ <!-- Section Title -->
+ <div class="container section-title" data-aos="fade-up">
+  <h2>Our Services</h2>
 
+</div>
+<!-- End Section Title -->
       <div class="container">
 
         <div class="row gy-4">
-          <h3 style="text-align: center;">Our Services</h3>
+          <!-- <h3 style="text-align: center;">Our Services</h3> -->
           <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="service-item item-cyan position-relative">
               <div class="icon">
@@ -357,86 +362,6 @@
 
     </section><!-- /Featured Services Section -->
 
-
-    <!-- Services Section -->
-    <!-- <section id="services" class="services section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="200">
-            <div class="service-item position-relative">
-              <div class="img">
-                <img src="assets/img/Petroleum-Products1.png" class="img-fluid" alt="">
-              </div>
-              <div class="details">
-                <a href="" class="stretched-link">
-                  <h3>Imported Petroleum Products</h3>
-                </a>
-                <p>Imported Petroleum Products are essential fuels sourced from international markets, including diesel,
-                  gasoline, heavy and light fuel oil, kerosene, and jet fuel, used for transportation, industrial
-                  applications, and energy production.</p>
-              </div>
-            </div>
-          </div><!-- End Service Item ->
-
-          <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="300">
-            <div class="service-item position-relative">
-              <div class="img">
-                <img src="assets/img/Agricultural-Commodities1.png" class="img-fluid" alt="">
-              </div>
-              <div class="details">
-                <a href="service-details.html" class="stretched-link">
-                  <h3>Exported Agricultural Commodities</h3>
-                </a>
-                <p>Exported Agricultural Commodities are high-quality crops, such as sesame seeds, soybean seeds, green
-                  mung bean seeds, pulses, raw coffee beans, and sorghum and maize, cultivated locally and traded in
-                  international markets to meet global demand for food and raw materials.</p>
-              </div>
-            </div>
-          </div><!-- End Service Item ->
-
-          <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="400">
-            <div class="service-item position-relative">
-              <div class="img">
-                <img src="assets/img/Engine-Oils1.png" class="img-fluid" alt="">
-              </div>
-              <div class="details">
-                <a href="services.html" class="stretched-link">
-                  <h3>Imported Engine Oils and Lubricants</h3>
-                </a>
-                <p>Imported Engine Oils and Lubricants are specialized fluids sourced from international markets,
-                  designed to reduce friction, enhance performance, and protect engine components in vehicles,
-                  industrial machinery, and agricultural equipment.</p>
-              </div>
-            </div>
-          </div><!-- End Service Item ->
-
-          <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="500">
-            <div class="service-item position-relative">
-              <div class="img">
-                <img src="assets/img/Machineries1.png" class="img-fluid" alt="">
-              </div>
-              <div class="details">
-                <a href="services.html" class="stretched-link">
-                  <h3>Machineries and Inputs</h3>
-                </a>
-                <p>Machineries and Inputs encompass essential equipment and supplies, such as fuel dispenser machines,
-                  agricultural machinery, and agricultural inputs, used to support fuel distribution, farming
-                  operations, and overall agricultural productivity.</p>
-                <a href="services.html" class="stretched-link"></a>
-              </div>
-            </div>
-          </div><!-- End Service Item ->
-
-        </div>
-
-      </div>
-
-    </section> -->
-    <!-- /Services Section -->
-
     <!-- Service Cards Section -->
     <section id="service-cards" class="service-cards section">
 
@@ -467,7 +392,7 @@
             <div class="card-item">
               <div class="row">
                 <div class="col-xl-5">
-                  <div class="card-bg"><img src="assets/img/Agricultural-Commodities1.png" alt=""></div>
+                  <div class="card-bg"><img src="assets/img/1.png" alt=""></div>
                 </div>
                 <div class="col-xl-7 d-flex align-items-center">
                   <div class="card-body">
@@ -504,7 +429,7 @@
             <div class="card-item">
               <div class="row">
                 <div class="col-xl-5">
-                  <div class="card-bg"><img src="assets/img/Machineries1.png" alt=""></div>
+                  <div class="card-bg"><img src="assets/img/2.png" alt=""></div>
                 </div>
                 <div class="col-xl-7 d-flex align-items-center">
                   <div class="card-body">
@@ -541,7 +466,7 @@
             <div class="card-item">
               <div class="row">
                 <div class="col-xl-5">
-                  <div class="card-bg"><img src="assets/img/products.png" alt=""></div>
+                  <div class="card-bg"><img src="assets/img/3.png" alt=""></div>
                 </div>
                 <div class="col-xl-7 d-flex align-items-center">
                   <div class="card-body">
@@ -580,18 +505,6 @@
           4,000 hectares, producing a variety of industrial, commercial, and food crops. We specialize in the
           cultivation of cotton, sesame, soybean, green mung beans, maize, and sorghum, ensuring a consistent supply of
           premium products to both local and international markets.</p>
-        <!-- <p>
-          In addition to our own farms, we collaborate with more than 2,000 small and medium-scale farmers through
-          contract farming, collectively collecting over 50,000 metric tons of agricultural products annually. This
-          collaboration not only boosts the livelihoods of farmers but also strengthens Ethiopia’s position as a global
-          player in the export of oilseeds, pulses, and coffee.
-        </p>
-        <p>
-          Our commitment to sustainability, innovation, and quality ensures that Baro Energy Trading remains a trusted
-          partner for clients seeking reliable agricultural products for international trade. Whether you are looking
-          for raw materials or finished products, Baro Energy Trading is dedicated to delivering excellence in every
-          transaction.
-        </p> -->
       </div>
     </section>
     <!-- end  general Saction -->
@@ -735,10 +648,6 @@
           <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="600">
             <div class="post-box">
               <div class="post-img"><img src="assets/img/sorghum.png" class="img-fluid" alt=""></div>
-              <!-- <div class="meta">
-              <span class="post-date">Tue, July 27</span>
-              <span class="post-author"> / Lisa Hunter</span>
-            </div> -->
               <div class="texts"><br>
                 <h3 class="post-title" style="color:#0494e2">Sorghum Seeds</h3>
                 <hr>
@@ -751,22 +660,20 @@
             </div>
           </div>
 
-          <!-- <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="600">
+          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="600">
             <div class="post-box">
-              <div class="post-img"><img src="assets/img/portfolio/Maize-Crop.png" class="img-fluid" alt=""></div>
-              <!-- <div class="meta">
-              <span class="post-date">Tue, Sep 16</span>
-              <span class="post-author"> / Mario Douglas</span>
-            </div> ->
-              <div class="texts">
-                <h3 class="post-title" style="color:#0494e2">Maize-Crop</h3>
-                <p>Baro Energy Trading provides high-quality, sustainably grown maize, ensuring consistent supply for
-                  food and industrial use. Trusted for reliability.</p>
+              <div class="post-img"><img src="assets/img/keydeny-beas.png" class="img-fluid" alt=""></div>
+               <div class="meta">
+            </div> 
+              <div class="texts"><br>
+                <h3 class="post-title" style="color:#0494e2">Kidney Beans</h3>
+                <hr>
+                <p>Experience the rich, authentic flavor of Ethiopian kidney beans—packed with protein, fiber, and nutrients! Perfect for hearty meals, these sustainably sourced beans bring natural goodness to your table. Taste the difference today!</p>
               </div>
               <!-- <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
-                class="bi bi-arrow-right"></i></a> ->
+                class="bi bi-arrow-right"></i></a> -->
             </div>
-          </div> -->
+          </div>
 
         </div>
 
