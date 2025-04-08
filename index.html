@@ -139,6 +139,7 @@
     <section id="hero" class="hero section">
       <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
 
+
         <div class="carousel-item active">
           <img src="assets/img/slider-11.png" alt="">
           <div class="container">
@@ -150,8 +151,21 @@
         </div>
         <!-- End Carousel Item -->
 
+
+        <div class="carousel-item active">
+          <img src="assets/img/slider-11.png" alt="">
+          <div class="container">
+            <h2>Empowering Growth Through Energy, Trade, and Innovation</h2>
+            <p> Baro Energy Trading is one of Ethiopia’s fast-growing and diversified companies in the energy, agriculture, manufacturing, and logistics sectors. Since 2011 EC, we've been at the forefront of petroleum distribution, agricultural commodity export, and machinery supply—serving both domestic and international markets with efficiency, safety, and innovation.</p>
+            <a href="#about" class="btn-get-started">Read More</a>
+          </div>
+        </div>
+        <!-- End Carousel Item -->
+
+        
+
         <div class="carousel-item">
-          <img src="assets/img/Maize_Crop1.jpg" alt="">
+          <img src="assets/img/portfolio/sorghum11.jpg" alt="">
           <div class="container">
             <h2>Diverse <span>Business </span>Ventures</h2>
             <p>Baro Energy Trading goes beyond fuel and oil supply, offering a wide range of services including
@@ -381,11 +395,154 @@
               <p>Expand the cultivable land under contract farming to over 20,000 hectares per annum for the coming five
                 years.Maximize profitability and operational effectiveness without compromising commitments to social
                 responsibility, environmental protection, and safety.</p>
-              <!-- <a href="#" class="read-more stretched-link"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> -->
-            </div>
+              </div>
           </div><!-- End Service Item -->
         </div>
     </section><!-- /objective Section -->
+
+    <!-- partial -->
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.min.js'></script>
+   <script src="assets/js/script.js"></script>
+
+<!-- Features Section -->
+<section id="features" class="features section">
+
+   <style>
+
+@media (max-width: 767px) {
+      #features .row {
+        flex-direction: column;
+      }
+
+      #features .col-xl-6 img {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      #features .feature-box {
+        justify-content: center;
+        text-align: center;
+      }
+
+      #features h2 {
+        font-size: 20px;
+      }
+
+      #features h3 {
+        font-size: 16px;
+      }
+
+      #features .feature-box i {
+        margin-right: 10px;
+      }
+
+      /* Reorder EXPORTED COMMODITIES to be between Dubai & Somalia */
+      #features .col-md-6[data-aos-delay="300"] {
+        order: 3;
+        /* EXPORTED COMMODITIES */
+      }
+
+      #features .col-md-6[data-aos-delay="700"] {
+        order: 5;
+        /* Dubai & Somalia */
+      }
+
+      #features .col-md-6[data-aos-delay="500"] {
+        order: 7;
+        /* China */
+      }
+
+      #features .col-md-6[data-aos-delay="600"] {
+        order: 0;
+        /* Italy */
+      }
+
+    }
+
+   </style>
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>MARKET SOURCES AND DESTINATIONS </h2>
+    <!-- <p>Our Advacedd Features<br></p> -->
+  </div><!-- End Section Title -->
+
+  <div class="container">
+
+    <div class="row gy-5">
+
+      <div class="col-xl-6" data-aos="zoom-out" data-aos-delay="100">
+        <img src="assets/img/import-export.png" class="img-fluid" alt="">
+      </div>
+
+      <div class="col-xl-6 d-flex">
+        <div class="row align-self-center gy-4">
+
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="feature-box d-flex align-items-center">
+              <!-- <i class="bi bi-check"></i> -->
+              <h2 style="color: #0494e2;">IMPORTED COMMODITIES</h2>
+            </div>
+          </div><!-- End Feature Item -->
+
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="feature-box d-flex align-items-center">
+              <!-- <i class="bi bi-check"></i> -->
+              <h2 style="color: #0494e2;">EXPORTED COMMODITIES</h2>
+            </div>
+          </div><!-- End Feature Item -->
+
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="feature-box d-flex align-items-center">
+              <i class="bi bi-check"></i>
+              <h3>Dubai</h3>
+            </div>
+          </div><!-- End Feature Item -->
+
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="feature-box d-flex align-items-center">
+              <i class="bi bi-check"></i>
+              <h3>China</h3>
+            </div>
+          </div><!-- End Feature Item -->
+
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="feature-box d-flex align-items-center">
+              <i class="bi bi-check"></i>
+              <h3>Italy</h3>
+            </div>
+          </div><!-- End Feature Item -->
+
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="700">
+            <div class="feature-box d-flex align-items-center">
+              <i class="bi bi-check"></i>
+              <h3>Singapore</h3>
+            </div>
+          </div><!-- End Feature Item -->
+
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="feature-box d-flex align-items-center">
+              <i class="bi bi-check"></i>
+              <h3>China</h3>
+            </div>
+          </div><!-- End Feature Item -->
+
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="700">
+            <div class="feature-box d-flex align-items-center">
+              <i class="bi bi-check"></i>
+              <h3>Dubai & Somalia</h3>
+            </div>
+          </div><!-- End Feature Item -->
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section><!-- /Features Section -->
+
 
     <!-- Gallery Section -->
     <section id="gallery" class="gallery section">
@@ -469,83 +626,7 @@
 
     </section><!-- /Gallery Section -->
 
-    <!-- Recent Posts Section -->
-    <!-- <section id="recent-posts" class="recent-posts section">
 
-      <!-- Section Title -->
-    <!-- <div class="container section-title" data-aos="fade-up">
-      <h2>Recent Blog Posts</h2>
-
-    </div> -->
-    <!-- End Section Title -->
-
-    <!-- <div class="container">
-
-      <div class="row gy-5">
-
-        <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="post-box">
-            <div class="post-img"><img src="assets/img/blog/blog-1.jpg" class="img-fluid" alt=""></div>
-            <div class="meta">
-              <span class="post-date">Tue, December 12</span>
-              <span class="post-author"> / Julia Parker</span>
-            </div>
-            <h3 class="post-title">Eum ad dolor et. Autem aut fugiat debitis</h3>
-            <p>Illum voluptas ab enim placeat. Adipisci enim velit nulla. Vel omnis laudantium. Asperiores eum ipsa
-              est officiis. Modi qui magni est...</p>
-            <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
-                class="bi bi-arrow-right"></i></a>
-          </div>
-        </div>
-
-        <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-          <div class="post-box">
-            <div class="post-img"><img src="assets/img/blog/blog-2.jpg" class="img-fluid" alt=""></div>
-            <div class="meta">
-              <span class="post-date">Fri, September 05</span>
-              <span class="post-author"> / Mario Douglas</span>
-            </div>
-            <h3 class="post-title">Et repellendus molestiae qui est sed omnis</h3>
-            <p>Voluptatem nesciunt omnis libero autem tempora enim ut ipsam id. Odit quia ab eum assumenda. Quisquam
-              omnis doloribus...</p>
-            <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
-                class="bi bi-arrow-right"></i></a>
-          </div>
-        </div>
-
-        <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="600">
-          <div class="post-box">
-            <div class="post-img"><img src="assets/img/blog/blog-3.jpg" class="img-fluid" alt=""></div>
-            <div class="meta">
-              <span class="post-date">Tue, July 27</span>
-              <span class="post-author"> / Lisa Hunter</span>
-            </div>
-            <h3 class="post-title">Quia assumenda est et veritati</h3>
-            <p>Quia nam eaque omnis explicabo similique eum quaerat similique laboriosam. Quis omnis repellat sed quae
-              consectetur magnam...</p>
-            <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
-                class="bi bi-arrow-right"></i></a>
-          </div>
-        </div>
-
-        <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="600">
-          <div class="post-box">
-            <div class="post-img"><img src="assets/img/blog/blog-4.jpg" class="img-fluid" alt=""></div>
-            <div class="meta">
-              <span class="post-date">Tue, Sep 16</span>
-              <span class="post-author"> / Mario Douglas</span>
-            </div>
-            <h3 class="post-title">Pariatur quia facilis similique deleniti</h3>
-            <p>Et consequatur eveniet nam voluptas commodi cumque ea est ex. Aut quis omnis sint ipsum earum quia
-              eligendi...</p>
-            <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
-                class="bi bi-arrow-right"></i></a>
-          </div>
-        </div>
-
-      </div>
-
-    </div> -->
 
     </section>
     <!-- /Recent Posts Section -->
