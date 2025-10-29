@@ -1,4 +1,113 @@
+:root{
+  --brand: #16C9FF;
+  --brand-dark: #04618C;
+  --accent: #0494E2;
+  --bg: #ffffff;
+  --muted: #5b6b78;
+  --card-border: rgba(78,76,76,0.08);
+  --max-width: 1200px;
+  --radius: 10px;
+  --shadow: 0 6px 18px rgba(18,38,63,0.06);
+  --site-font: "Poppins", "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
 
+html,body{
+  height:100%;
+  font-family: var(--site-font);
+  color: #222;
+  background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+}
+
+/* Header / Nav */
+#header .logo img { height:44px; display:block; }
+#header .navmenu { display:flex; align-items:center; gap:18px; }
+#header .navmenu a { color:var(--brand-dark); text-decoration:none; transition:color .18s; }
+#header .navmenu a.active, #header .navmenu a:hover { color:var(--brand); }
+
+/* Buttons */
+.btn-get-started, .cta-btn {
+  background:var(--brand);
+  color:#fff;
+  padding:10px 20px;
+  border-radius: 8px;
+  display:inline-block;
+  transition: transform .12s ease, box-shadow .12s ease, background .12s;
+  text-decoration:none;
+  border: none;
+}
+.btn-get-started:hover, .cta-btn:hover{ background:var(--brand-dark); transform: translateY(-2px); }
+
+/* Page title */
+.page-title {
+  background-size: cover;
+  background-position: center;
+  padding:40px 0;
+  color:#fff;
+}
+.page-title .container h1 { margin:0; font-weight:600; color:#fff; text-shadow:0 2px 8px rgba(0,0,0,0.35); }
+.page-title .container p { color: rgba(255,255,255,0.95); margin-top:8px; }
+
+/* Section titles */
+.section-title h2 { color:var(--brand-dark); font-weight:600; margin:0 0 12px; }
+
+/* Service item common */
+.service-item { background:#fff; border-radius:8px; padding:18px; border:1px solid var(--card-border); box-shadow:var(--shadow); height:100%; }
+.service-item .icon i { color:var(--accent); font-size:24px; }
+.service-item h3 { color:var(--brand-dark); margin-top:6px; }
+.service-item p { color:var(--muted); line-height:1.5; }
+
+/* Features list */
+.feature-box { background:transparent; padding:8px 0; }
+.feature-box i { color:var(--accent); margin-right:10px; }
+
+/* Content cards */
+.content-section {
+  background-color:var(--bg);
+  padding:30px 16px;
+  text-align:center;
+  max-width:var(--max-width);
+  margin:24px auto;
+  box-shadow:var(--shadow);
+  border:1px solid var(--card-border);
+  border-radius:var(--radius);
+}
+
+/* Image grid */
+.image-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+  gap:14px;
+  margin-top:18px;
+}
+.image-grid img{
+  width:100%;
+  max-width:180px;
+  height:120px;
+  object-fit:cover;
+  border-radius:8px;
+  box-shadow:0 6px 12px rgba(20,201,255,0.08);
+  transition:transform .25s, box-shadow .25s;
+  cursor:pointer;
+}
+.image-grid img:hover{ transform:translateY(-4px) scale(1.03); box-shadow:0 10px 22px rgba(4,148,226,0.14); border:2px solid rgba(4,148,226,0.08); }
+
+/* Recent posts */
+#recent-posts .post-box { display:flex; gap:14px; align-items:flex-start; border-radius:8px; padding:14px; background:#fff; border:1px solid var(--card-border); box-shadow:0 6px 16px rgba(18,38,63,0.04); }
+#recent-posts .post-img img{ width:140px; height:100px; object-fit:cover; border-radius:6px; }
+
+/* Hero tweaks */
+#hero img { width:100%; height:100%; object-fit:cover; filter: brightness(0.66); }
+#hero .container { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:#fff; text-align:center; z-index:2; padding:0 20px; }
+
+/* Utilities */
+.text-muted { color:var(--muted); }
+
+/* Responsive */
+@media (max-width: 767px){
+  .image-grid img { max-width:140px; height:90px; }
+  #recent-posts .post-box { flex-direction:column; align-items:center; }
+  #header .navmenu ul { display:flex; gap:8px; flex-wrap:wrap; }
+}
 
 .cards .title {
   font-family: "Raleway";

@@ -28,32 +28,109 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <!-- Shared project styles and color variables -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- New: animated backgrounds -->
+  <link href="assets/css/backgrounds.css" rel="stylesheet">
+
+  <style>
+    /* Small page-specific overrides to align with shared palette */
+    .page-title .breadcrumbs a { color: rgba(255,255,255,0.9); }
+    .page-title { padding: 36px 0; background-size: cover; background-position: center; }
+    .page-title h1 { margin: 0; font-weight: 600; color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,0.35); }
+
+    /* Icon coloring using palette variables in assets/css/style.css */
+    .stats-item i { color: var(--brand); font-size: 28px; margin-right: 10px; }
+    .service-item .icon i { color: var(--accent); font-size: 22px; }
+    .why-us .card-item h4 a { color: var(--brand-dark); text-decoration: none; }
+    .why-us .card-item p { color: var(--muted); }
+
+    /* Highlight used in 'KEY DRIVERS' slider */
+    .section-highlight { color: var(--brand); }
+
+    /* Improve spacing on small screens */
+    @media (max-width: 767px) {
+      .page-title { padding: 28px 0; }
+      .stats-item { gap: 8px; }
+    }
+
+    /* New animated gradient background + subtle parallax */
+    #animated-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      mix-blend-mode: overlay;
+      opacity: 0.18; /* adjust visibility */
+      background: linear-gradient(120deg, #04263a 0%, #0494e2 35%, #15bfbc 65%, #0a2b3f 100%);
+      background-size: 300% 300%;
+      filter: saturate(1.05) contrast(1.02);
+      transition: transform 220ms linear;
+      will-change: transform;
+      animation: bgShift 18s ease-in-out infinite;
+    }
+
+    /* Slight glass/noise-look using radial gradients */
+    #animated-bg::after{
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        radial-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
+      background-size: 40px 40px, 140px 140px;
+      opacity: 0.55;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+    }
+
+    /* Make content render above the background */
+    header,
+    main,
+    footer,
+    #header,
+    .main,
+    .footer {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* reduce background on mobile */
+    @media (max-width: 768px) {
+      #animated-bg { opacity: 0.12; animation-duration: 28s; }
+    }
+
+    /* Gradient animation */
+    @keyframes bgShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  </style>
+
   <!-- =======================================================
    * Project: 2
   * Designed by: Amanuel Andemo
-  * Email: andemoamanuel@gmail.com
   ======================================================== -->
-  <style>
-
-  </style>
 </head>
 
 <body class="about-page">
+
+  <!-- New: animated interactive background (pointer-events: none so page still clickable) -->
+  <div id="animated-bg" aria-hidden="true"></div>
 
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="assets/img/logo2.png" alt="">
-        <!-- <h1 class="sitename">Baro</h1> -->
+        <img src="assets/img/logo2.png" alt="Baro logo">
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html" class="active">About</a></li>
-          <!-- <li><a href="services.html">SERVICES</a></li> -->
           <li class="dropdown"><a href="services.html"><span>SERVICES & Products</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="services.html#featured-services">SERVICES</a></li>
@@ -62,8 +139,6 @@
             </ul>
           </li>
           <li><a href="Gallery.html">Gallery</a></li>
-          <!-- <li><a href="team.html">Team</a></li>
-          <li><a href="blog.html">Blog</a></li> -->
           <li><a href="contact.html">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -74,12 +149,10 @@
 
   <main class="main">
 
-
     <!-- Page Title -->
     <div class="page-title dark-background" style="background-image: url(assets/img/bg.png);">
       <div class="container position-relative">
         <h1>About</h1>
-        <!-- <p>Esse dolorum voluptatum ullam est sint nemo et est ipsa porro placeat quibusdam quia assumenda numquam molestias.</p> -->
         <nav class="breadcrumbs">
           <ol>
             <li><a href="index.html">Home</a></li>
@@ -89,147 +162,73 @@
       </div>
     </div><!-- End Page Title -->
 
-     <!-- About Section -->
+     <!-- About Section (intro) -->
      <section id="about" class="about section light-background">
-
       <div class="container">
-
         <div class="row gy-4">
           <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="100">
-            <img src="assets/img/baro-mockup1.png" class="img-fluid" alt="">
-            <!-- <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a> -->
+            <img src="assets/img/baro-mockup1.png" class="img-fluid" alt="Baro operations mockup">
           </div>
           <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="200">
             <h2 style="text-align: center;">About Us</h2>
-            <h3>Baro Energy Trading </h3>
+            <h3>Baro Energy Trading</h3>
             <p class="fst-italic">
               Baro Energy Trading is a company established in November 23, 2011 EC and registered under the Ethiopian
-              Commercial Registration and Business License Proc No. 980/2016. The major destinations are the most
-              commercial areas of the country like Gambela, North-West Ethiopia, Semera, Addis Ababa, Bure, and
-              Mizan-Tepi…. However, the company’s head office is located in Addis Ababa.
+              Commercial Registration and Business License Proc No. 980/2016. The major destinations are Gambela, North-West Ethiopia, Semera, Addis Ababa, Bure, and Mizan-Tepi. The company’s head office is located in Addis Ababa.
             </p>
 
             <p class="fst-italic">
-              The company has been building good reputation on the fuel, oil, and lubricants supply industry in
-              Ethiopia. Adopting new and innovative technologies to improve the logistics and deliver the highest
-              quality services to its clients are the company’s dignifying characteristics. With operations that embrace
-              many parts of Ethiopia, we strive to be the company of choice for clients, partners, customers, and
-              employees.
+              The company has built a strong reputation in the fuel, oil, and lubricants supply industry in Ethiopia. Adopting innovative technologies to improve logistics and deliver quality services is central to our approach.
             </p>
           </div>
         </div>
-
       </div>
-
     </section><!-- /About Section -->
 
-
-    <!-- About Section -->
-    <section id="about" class="about section">
-
-      <!-- Section Title -->
+    <!-- Learn More Section (renamed to avoid duplicate ids) -->
+    <section id="learn-more" class="about section">
       <div class="container section-title" data-aos="fade-up">
-        <h2>Learn More About Us<br></h2>
-        <!-- <p><span>Learn More</span> <span class="description-title">About Us</span></p> -->
-      </div><!-- End Section Title -->
+        <h2>Learn More About Us</h2>
+      </div>
 
       <div class="container">
-
         <div class="row gy-4">
           <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
-            <img src="assets/img/about.png" class="img-fluid mb-4" alt="">
-            <!-- <div class="book-a-table"> -->
-            <h3>Baro Energy Trading </h3>
+            <img src="assets/img/about.png" class="img-fluid mb-4" alt="About Baro">
+            <h3>Baro Energy Trading</h3>
             <p>
-              Baro Energy Trading is a company established in December 2, 2018 GC and registered under the Ethiopian
-              Commercial Registration and Business License Proc No. 980/2016. The major destinations are the most
-              commercial areas of the country like Gambela, North-West Ethiopia, Semera, Addis Ababa, Bure, and
-              Mizan-Tepi…. However, the company’s head office is located in Addis Ababa.
+              Baro Energy Trading (est. December 2, 2018 GC) operates across major commercial areas of Ethiopia and offers a broad portfolio including fuel distribution, agricultural commodity export, and machinery supply.
             </p>
             <p>
-              The company has been building good reputation on the fuel, oil, and lubricants supply industry in
-              Ethiopia. Adopting new and innovative technologies to improve the logistics and deliver the highest
-              quality services to its clients are the company’s dignifying characteristics. With operations that
-              embrace many parts of Ethiopia, we strive to be the company of choice for clients, partners, customers,
-              and employees.
+              Our operations include production, procurement, and distribution activities with focus on sustainability, quality, and digital transformation.
             </p>
-            <!-- </div> -->
           </div>
-          <!-- <div class="col-lg-5" data-aos="fade-up" data-aos-delay="250">
-            <div class="content ps-0 ps-lg-5">
-              <p>Besides, in the past six years; the company has been expanded its business ventures to: </p>
-              <ul>
-                <li><i class="bi bi-check-circle-fill"></i> <span>Importing engine oils and lubricants</span></li>
-                <li><i class="bi bi-check-circle-fill"></i> <span>Importing Fuel dispenser machines and
-                    accessories</span></li>
-                <li><i class="bi bi-check-circle-fill"></i> <span>Importing Vehicle Spare Parts Procurement and
-                    Supplies;</span></li>
-                <p>Besides, in the past six years; the company has been expanded its business ventures to: </p>
-                <ul>
-                  <li><i class="bi bi-check-circle-fill"></i> <span>Importing Industrial and Agricultural Chemicals,
-                      fertilizers</span></li>
-                  <li><i class="bi bi-check-circle-fill"></i> <span>Exporting Agricultural commodities (i.e. Oil crops
-                      and Pulses, Coffee)</span></li>
-                  <li><i class="bi bi-check-circle-fill"></i> <span>Production of industrial, commercial and food
-                      crops including cotton, sesame, soybean, green mung bean, maize and sorghum on over 4000
-                      hectares.</span></li>
-                  <li><i class="bi bi-check-circle-fill" style="color:#0494e2;"></i> <span>Collect over 50, 000 MTs of
-                      agricultural products
-                      annually from both own farms and through the contract farming.</span></li>
-                  <li><i class="bi bi-check-circle-fill" style="color: #0494e2;"></i> <span>We’re working with more than
-                      2,000 small and medium
-                      scale farmers in Humera, Gambela, Welaita, Shewa-robit and Benishangul…areas.</span></li>
-                  <li><i class="bi bi-check-circle-fill" style="color: #0494e2;"></i> <span>Wholesale and Retail
-                      Trade…</span></li>
-
-                  <li><i class="bi bi-check-circle-fill" style="color: #0494e2;"></i> <span>Transportation and Logistics
-                      Services</span></li>
-                  <li><i class="bi bi-check-circle-fill" style="color: #0494e2;"></i> <span>Machinery Rental Services
-                    </span></li>
-                  <li><i class="bi bi-check-circle-fill" style="color: #0494e2;"></i> <span>Manufacturing sector like
-                      textile, Mining and Food processing sectors…(ongoing projects)
-                    </span></li>
-                </ul>
-
-                
-            </div>
-          </div> -->
-
 
           <div class="col-lg-5" data-aos="fade-up" data-aos-delay="250">
             <div class="content ps-0 ps-lg-5">
               <h3>Fueling Ethiopia's Future, Today</h3>
-              <p>Baro Energy Trading is headquartered in Addis Ababa with operational coverage across Gambela, Bure, Mizan-Tepi, Semera, and beyond. Our enterprise spans: </p>
+              <p>Headquartered in Addis Ababa, our enterprise spans:</p>
               <ul>
                 <li><i class="bi bi-check-circle-fill"></i> <span>Fuel & petroleum products supply (600,000-liter depot capacity)</span></li>
                 <li><i class="bi bi-check-circle-fill"></i> <span>Agri-commodity production & export</span></li>
-                <li><i class="bi bi-check-circle-fill"></i> <span>Import of industrial inputs, machinery, and lubricants</span></li>
-                
-                  <li><i class="bi bi-check-circle-fill"></i> <span>Contract farming with 2,000+ farmers</span></li>
-                  <li><i class="bi bi-check-circle-fill"></i> <span>Logistics and transport services</span></li>
-                  
-                </ul>
-                              <p>We’re committed to quality, sustainability, and digital transformation.</p>
-                
+                <li><i class="bi bi-check-circle-fill"></i> <span>Import of industrial inputs, machinery & lubricants</span></li>
+                <li><i class="bi bi-check-circle-fill"></i> <span>Contract farming with 2,000+ farmers</span></li>
+                <li><i class="bi bi-check-circle-fill"></i> <span>Logistics and transport services</span></li>
+              </ul>
+              <p>We’re committed to quality, sustainability, and digital transformation.</p>
             </div>
           </div>
         </div>
-
       </div>
-
-    </section><!-- /About Section -->
-
+    </section><!-- /Learn More Section -->
 
     <!-- Stats Section -->
     <section id="stats" class="stats section">
-
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-
         <div class="row gy-4">
-
           <div class="col-lg-3 col-md-6">
             <div class="stats-item d-flex align-items-center w-100 h-100">
-              <i class="bi bi-people" style="color: #f57813;"></i>
+              <i class="bi bi-people"></i>
               <div>
                 <span data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1"
                   class="purecounter"></span>
@@ -240,7 +239,7 @@
 
           <div class="col-lg-3 col-md-6">
             <div class="stats-item d-flex align-items-center w-100 h-100">
-              <i class="bi bi-truck" style="color: #f57813;"></i>
+              <i class="bi bi-truck"></i>
               <div>
                 <span data-purecounter-start="0" data-purecounter-end="300" data-purecounter-duration="1"
                   class="purecounter"></span>
@@ -251,7 +250,7 @@
 
           <div class="col-lg-3 col-md-6">
             <div class="stats-item d-flex align-items-center w-100 h-100">
-              <i class="bi bi-pin-map" style="color: #f57813;"></i>
+              <i class="bi bi-pin-map"></i>
               <div>
                 <span data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="1"
                   class="purecounter"></span>
@@ -259,28 +258,19 @@
               </div>
             </div>
           </div><!-- End Stats Item -->
-
-         
-
         </div>
-
       </div>
-
     </section><!-- /Stats Section -->
 
     <!-- Why Us Section -->
     <section id="why-us" class="why-us section">
-
       <div class="container">
-
         <div class="row g-0">
-
           <div class="col-xl-5 img-bg" data-aos="fade-up" data-aos-delay="100">
-            <img src="assets/img/growth.jpg" alt="">
+            <img src="assets/img/growth.jpg" alt="growth image" class="img-fluid">
           </div>
 
           <div class="col-xl-7 slides position-relative" data-aos="fade-up" data-aos-delay="200">
-
             <div class="swiper init-swiper">
               <script type="application/json" class="swiper-config">
                 {
@@ -302,53 +292,38 @@
                   }
                 }
               </script>
-              <h2 style="color: #15bfbc;"><b> KEY DRIVERS TO OUR FAST GROWTH </b></h2>
+              <h2 class="section-highlight"><b>KEY DRIVERS TO OUR FAST GROWTH</b></h2>
               <div class="swiper-wrapper">
-
                 <div class="swiper-slide">
                   <div class="item">
                     <h3 class="mb-3">1. CORE VALUES</h3>
-                    <!-- <h4 class="mb-3">Optio reiciendis accusantium iusto architecto at quia minima maiores quidem, -->
-                    dolorum.</h4>
-                    <p>We always center on Integrity and Operational excellence, long-term partnerships, discipline,
-                      vigilance, and Safety.</p>
+                    <p>Integrity, operational excellence, partnership, discipline, vigilance, and safety.</p>
                   </div>
-                </div><!-- End slide item -->
-
+                </div>
                 <div class="swiper-slide">
                   <div class="item">
                     <h3 class="mb-3">2. COACTION</h3>
-                    <!-- <h4 class="mb-3">Necessitatibus voluptatibus explicabo dolores a vitae voluptatum.</h4> -->
-                    <p>We’ve an adaptable, accommodating, flexible, and cooperative nature in all our business ventures.
-                    </p>
+                    <p>Adaptability, cooperation, and flexibility across our ventures.</p>
                   </div>
-                </div><!-- End slide item -->
-
+                </div>
                 <div class="swiper-slide">
                   <div class="item">
-                    <h3 class="mb-3">3. EFFICENCY</h3>
-                    <!-- <h4 class="mb-3">Tempora quos est ut quia adipisci ut voluptas. Deleniti laborum soluta nihil est.
-                      Eum similique neque autem ut.</h4> -->
-                    <p>our moto is ”Efficiency and Effectiveness” with highest safety and quality, sustainability and
-                      nature friendly working environment.</p>
+                    <h3 class="mb-3">3. EFFICIENCY</h3>
+                    <p>Efficiency and effectiveness with highest safety and quality standards.</p>
                   </div>
-                </div><!-- End slide item -->
+                </div>
                 <div class="swiper-slide">
                   <div class="item">
                     <h3 class="mb-3">4. CREATIVITY</h3>
-                    <!-- <h4 class="mb-3">Amet cumque nam sed voluptas doloribus iusto. Dolorem eos aliquam quis.</h4> -->
-                    <p>we provide open, adaptive and innovative working ground that boost new ideas.</p>
+                    <p>Open and innovative working ground that boosts new ideas.</p>
                   </div>
-                </div><!-- End slide item -->
-
+                </div>
                 <div class="swiper-slide">
                   <div class="item">
                     <h3 class="mb-3">5. CAPABILITY</h3>
-                    <!-- <h4 class="mb-3">Amet cumque nam sed voluptas doloribus iusto. Dolorem eos aliquam quis.</h4> -->
-                    <p>We always stick to simplified and optimized processes to accomplish due deligence and quality
-                      performance</p>
+                    <p>Simplified and optimized processes to ensure due diligence and quality performance.</p>
                   </div>
-                </div><!-- End slide item -->
+                </div>
               </div>
               <div class="swiper-pagination"></div>
             </div>
@@ -358,162 +333,89 @@
           </div>
 
         </div>
-
       </div>
-
     </section><!-- /Why Us Section -->
 
-    <!--WHY BARO? Section -->
+    <!-- WHY BARO? Section -->
     <section id="services" class="services section">
-
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Why BARO ?</h2>
-        <!-- <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p> -->
-      </div><!-- End WHY BARO? Title -->
+      </div>
 
       <div class="container">
-
         <div class="row gy-4">
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon flex-shrink-0"> <i class="bi bi-shield-fill-exclamation" style="color: #f57813;"></i>
-
-            </div>
+            <div class="icon flex-shrink-0"> <i class="bi bi-shield-fill-exclamation"></i></div>
             <div>
               <h4 class="title">SAFETY FIRST</h4>
-              <p class="description">We’re Always Stick to The Highest Safety and Standards in The Industry.</p>
-              <!-- <a href="#" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a> -->
+              <p class="description">We adhere to the highest safety standards in the industry.</p>
             </div>
           </div>
-          <!-- End WHY BARO? Item -->
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon flex-shrink-0"><i class="bi bi-clock" style="color:#15a04a;"></i></div>
+            <div class="icon flex-shrink-0"><i class="bi bi-clock"></i></div>
             <div>
               <h4 class="title">TIMELY DELIVERY</h4>
-              <p class="description">Timely delivery is our eminent quality </p>
-              <!-- <a href="#" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a> -->
+              <p class="description">Timely delivery is our hallmark.</p>
             </div>
-          </div><!-- End WHY BARO? Item -->
+          </div>
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon flex-shrink-0"><i class="bi bi-headset" style="color: #d90769;"></i></div>
+            <div class="icon flex-shrink-0"><i class="bi bi-headset"></i></div>
             <div>
               <h4 class="title">24 HOURS ON BOARD TO SERVE</h4>
-              <p class="description">We’re always on board to serve and respond to our clients and customer needs. </p>
-              <!-- <a href="#" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a> -->
+              <p class="description">Always on hand to serve clients' needs.</p>
             </div>
-          </div><!-- End WHY BARO? Item -->
+          </div>
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon flex-shrink-0"><i class="bi bi-check-circle" style="color:  #15bfbc;"></i></div>
+            <div class="icon flex-shrink-0"><i class="bi bi-check-circle"></i></div>
             <div>
               <h4 class="title">DELIVER PRODUCTS AT MINIMAL LOSSES</h4>
-              <p class="description">Our drivers and employees are of highly ethical and have zero loss scores.</p>
-              <!-- <a href="#" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a> -->
+              <p class="description">Highly ethical drivers and staff ensure minimal loss.</p>
             </div>
-          </div><!-- End WHY BARO? Item -->
+          </div>
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="500">
-            <div class="icon flex-shrink-0"><i class="bi bi-laptop" style="color: #f5cf13;"></i></div>
+            <div class="icon flex-shrink-0"><i class="bi bi-laptop"></i></div>
             <div>
               <h4 class="title">PROCESS DIGITALIZATION</h4>
-              <p class="description">We always strive to harness the maximum benefits of technology and optimize our
-                operation with most recent technologies in the industry.</p>
-              <!-- <a href="#" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a> -->
+              <p class="description">We harness technology to optimize operations.</p>
             </div>
-          </div><!-- End WHY BARO? Item -->
+          </div>
 
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
-            <div class="icon flex-shrink-0"><i class="bi bi-gear" style="color: #1335f5;"></i></div>
+            <div class="icon flex-shrink-0"><i class="bi bi-gear"></i></div>
             <div>
               <h4 class="title">FULL-FLEDGED SERVICE</h4>
-              <p class="description">The supply and distribution of petroleum and petroluem products is served with
-                highly efficient transportation service and supply of virgin oil and lubricants.</p>
-              <!-- <a href="#" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a> -->
+              <p class="description">Efficient supply and distribution of petroleum products and lubricants.</p>
             </div>
-          </div><!-- End WHY BARO? Item -->
+          </div>
 
         </div>
-
       </div>
-      <style>
-
-      </style>
     </section><!-- /WHY BARO Section -->
 
     <!-- Call To Action Section -->
     <section id="call-to-action" class="call-to-action section dark-background">
-
-      <img src="assets/img/speak-us-directly-call-us-now-premium-vector-design.avif" alt="">
-
+      <img src="assets/img/speak-us-directly-call-us-now-premium-vector-design.avif" alt="call to action image" class="img-fluid">
       <div class="container">
         <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
           <div class="col-xl-10">
             <div class="text-center">
               <h3>Call To Action</h3>
-              <p>Ready to power your business with reliable fuel supply, innovative solutions, and top-quality
-                agricultural exports? Partner with Baro Energy Trading today! Let’s fuel your growth and drive progress
-                together. Contact us now to get started!</p>
-              <a class="cta-btn" href="contact.html">Call To Action</a>
+              <p>Ready to power your business with reliable fuel supply, innovative solutions, and top-quality agricultural exports? Partner with Baro Energy Trading today.</p>
+              <a class="cta-btn" href="contact.html">Contact Us</a>
             </div>
           </div>
         </div>
       </div>
-
     </section><!-- /Call To Action Section -->
-
-    <!-- Why Us Section -->
-    <section id="why-us" class="why-us section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>OUR MISSION, VISION AND VALUES</h2>
-        <!-- <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p> -->
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="card-item">
-              <!-- <span>01</span> -->
-              <h4><a href="" class="stretched-link">Mission</a></h4>
-              <p>To lead in energy distribution and agricultural trade by delivering quality, safety, and customer-focused solutions, driving continuous improvement and innovation.
-              </p>
-            </div>
-          </div><!-- Card Item -->
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="card-item">
-              <!-- <span>02</span> -->
-              <h4><a href="" class="stretched-link">Vision</a></h4>
-              <p>To be Ethiopia’s premier diversified business partner—recognized for excellence, sustainability, and digital leadership across all operations.</p>
-            </div>
-          </div><!-- Card Item -->
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="card-item">
-              <!-- <span>03</span> -->
-              <h4><a href="" class="stretched-link">Core Values</a></h4>
-              <p>Integrity | Safety | Innovation | Efficiency | Customer Satisfaction</p>
-            </div>
-          </div><!-- Card Item -->
-
-        </div>
-
-      </div>
-
-    </section>  
 
   </main>
 
   <footer id="footer" class="footer dark-background">
-
-
-
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
@@ -539,20 +441,9 @@
           </ul>
         </div>
 
-        <!-- <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Our Services</h4>
-          <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Web Design</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Web Development</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Product Management</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
-          </ul>
-        </div> -->
-
         <div class="col-lg-4 col-md-12">
           <h4>About US</h4>
-          <p>We are an Ethiopian based Oil trading company operating across the country and providing various services.
-          </p>
+          <p>We are an Ethiopian based Oil trading company operating across the country and providing various services.</p>
           <div class="social-links d-flex">
             <a href=""><i class="bi bi-twitter-x"></i></a>
             <a href=""><i class="bi bi-facebook"></i></a>
@@ -566,21 +457,13 @@
 
     <div class="container copyright text-center mt-4">
       <p>© <span>Copyright</span> <strong class="px-1 sitename">Baro</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        Designed by <a href="https://tradethiopia.com/">Trade Ethiopia
-
-        </a>
-      </div>
+      <div class="credits">Designed by <a href="https://tradethiopia.com/">Trade Ethiopia</a></div>
     </div>
-
   </footer>
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
       class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -594,8 +477,75 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
   <!-- Main JS File -->
+  <script src="assets/js/backgrounds.js"></script>
   <script src="assets/js/main.js"></script>
 
+  <!-- Lightweight interactive parallax for the animated background -->
+  <script>
+    (function () {
+      const el = document.getElementById('animated-bg');
+      if (!el) return;
+
+      // small multiplier for parallax translation
+      const strength = 0.018;
+      let targetX = 0, targetY = 0;
+      let currentX = 0, currentY = 0;
+      let ticking = false;
+
+      function onMouseMove(e) {
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        // normalized -0.5 .. 0.5
+        targetX = (e.clientX / w - 0.5);
+        targetY = (e.clientY / h - 0.5);
+        requestTick();
+      }
+
+      function onTouchMove(e) {
+        if (!e.touches || !e.touches[0]) return;
+        onMouseMove(e.touches[0]);
+      }
+
+      function update() {
+        // ease towards target
+        currentX += (targetX - currentX) * 0.12;
+        currentY += (targetY - currentY) * 0.12;
+        const tx = currentX * (window.innerWidth * strength);
+        const ty = currentY * (window.innerHeight * strength);
+        // translate and slightly rotate for depth
+        el.style.transform = `translate3d(${tx}px, ${ty}px, 0) rotate(${currentX * 2}deg)`;
+        ticking = false;
+      }
+
+      function requestTick() {
+        if (!ticking) {
+          requestAnimationFrame(update);
+          ticking = true;
+        }
+      }
+
+      // public init in case you want to call later
+      function initAnimatedBackground() {
+        // reduce motion for users who prefer reduced motion
+        const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (mq && mq.matches) {
+          el.style.animation = 'none';
+          el.style.transition = 'none';
+          return;
+        }
+        window.addEventListener('mousemove', onMouseMove, { passive: true });
+        window.addEventListener('touchmove', onTouchMove, { passive: true });
+        // small reset on resize
+        window.addEventListener('resize', () => { targetX = targetY = currentX = currentY = 0; el.style.transform = ''; });
+      }
+
+      // auto-init
+      document.addEventListener('DOMContentLoaded', initAnimatedBackground);
+
+      // export for debugging or manual init
+      window.initAnimatedBackground = initAnimatedBackground;
+    })();
+  </script>
 </body>
 
 </html>

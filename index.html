@@ -10,7 +10,6 @@
 
   <!-- Favicons -->
   <link href="assets/img/logo2.png" rel="icon">
-  <!-- <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -28,6 +27,8 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <!-- Shared project styles and color variables -->
+  <link href="assets/css/style.css" rel="stylesheet">
 
   <!-- =======================================================
    * Project: 2
@@ -35,89 +36,31 @@
   * Email: andemoamanuel@gmail.com
   ======================================================== -->
   <style>
-    /* General Hero Section styles for all screens */
-    #hero {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      /* Full screen for all devices */
-      overflow: hidden;
-    }
-
-    #hero .carousel-item {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      /* Full screen for all devices */
-    }
-
-    #hero img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      /* Ensures the image covers the entire section */
-    }
-
-    #hero .container {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #1b1a1a;
-      text-align: center;
-      z-index: 2;
-      padding: 0 20px;
-      /* Padding for mobile and tablet screens */
-    }
-
-    /* Specific styles for mobile screens */
+    /* Keep hero-specific adjustments local (small overrides) */
     @media (max-width: 576px) {
-      #hero .container {
-        top: 70%;
-        /* Adjust content position lower for mobile */
-        transform: translate(-60%, -100%);
-        /* Shift the content based on the new top value */
-      }
-
-      #hero h2 {
-        font-size: 24px;
-        /* Smaller font size for mobile */
-      }
-
-      #hero p {
-        font-size: 16px;
-        /* Smaller font size for mobile */
-      }
-
-      #hero .btn-get-started {
-        padding: 8px 20px;
-        /* Adjust button padding for mobile */
-      }
+      #hero .container { top:70%; transform:translate(-50%,-70%); }
+      #hero h2 { font-size:24px; }
+      #hero p { font-size:16px; }
+      #hero .btn-get-started { padding:8px 20px; }
     }
   </style>
 </head>
 
 <body class="index-page">
 
-  <header id="header" class="header d-flex align-items-center fixed-top" ,>
-    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between"
-      style="color: rgb(22, 201, 255);">
+
+  
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="assets/img/logo2.png" alt="">
-        <!-- <h1 class="sitename" style="color: rgb(22, 201, 255);">Baro</h1> -->
+        <img src="assets/img/logo2.png" alt="Baro logo">
       </a>
 
-      <nav id="navmenu" class="navmenu">
+      <nav id="navmenu" class="navmenu" aria-label="Main navigation">
         <ul>
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <!-- <li><a href="services.html">SERVICES</a></li> -->
-          
           <li class="dropdown"><a href="services.html"><span>SERVICES & Products</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="services.html#featured-services">SERVICES</a></li>
@@ -128,7 +71,7 @@
           <li><a href="Gallery.html">Gallery</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list" aria-hidden="true"></i>
       </nav>
 
     </div>
@@ -138,7 +81,6 @@
     <!-- Hero Section -->
     <section id="hero" class="hero section">
       <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
-
 
         <div class="carousel-item active">
           <img src="assets/img/slider-11.png" alt="">
@@ -152,7 +94,7 @@
         <!-- End Carousel Item -->
 
 
-        <div class="carousel-item active">
+        <div class="carousel-item">
           <img src="assets/img/slider-11.png" alt="">
           <div class="container">
             <h2>Empowering Growth Through Energy, Trade, and Innovation</h2>
@@ -161,8 +103,6 @@
           </div>
         </div>
         <!-- End Carousel Item -->
-
-        
 
         <div class="carousel-item">
           <img src="assets/img/portfolio/sorghum11.jpg" alt="">
@@ -208,7 +148,6 @@
         <div class="row gy-4">
           <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="100">
             <img src="assets/img/baro-mockup1.png" class="img-fluid" alt="">
-            <!-- <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a> -->
           </div>
           <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="200">
             <h2 style="text-align: center;">About Us</h2>
@@ -289,13 +228,12 @@
               <div class="icon">
                 <i class="bi bi-truck"></i>
               </div>
-              <a href="services.html.html" class="stretched-link">
+              <a href="services.html" class="stretched-link">
                 <h3>Imported Engine Oils and Lubricants</h3>
               </a>
               <p>Imported Engine Oils and Lubricants are specialized fluids sourced from international markets,
                 designed to reduce friction, enhance performance, and protect engine components in vehicles, industrial
                 machines, and agricultural equipment.</p>
-              <a href="services.html" class="stretched-link"></a>
             </div>
           </div><!-- End Service Item -->
         </div>
@@ -307,7 +245,7 @@
     <!-- Call To Action Section -->
     <section id="call-to-action" class="call-to-action section dark-background">
 
-      <img src="assets/img/portfolio/depo.png" alt="">
+      <img src="assets/img/portfolio/depo.png" alt="depo">
 
       <div class="container">
         <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
@@ -317,7 +255,7 @@
               <p>Ready to power your business with reliable fuel supply, innovative solutions, and top-quality
                 agricultural exports? Partner with Baro Energy Trading today! Let’s fuel your growth and drive progress
                 together. Contact us now to get started!</p>
-              <a class="cta-btn" href="contact.html">Call To Action</a>
+              <a class="cta-btn" href="contact.html">Contact Us</a>
             </div>
           </div>
         </div>
